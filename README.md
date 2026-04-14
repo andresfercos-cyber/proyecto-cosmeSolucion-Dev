@@ -1,6 +1,6 @@
 <!DOCTYPE html>
  <head>
-   <h1>mi certificado</h1>
+   <h1>mi certificado CISCO</h1>
  </head>
 <body> 
 [HTML_Essentials_certificate_andresfercos-gmail-com_6a0498b7-5575-45e4-a9b6-03a62271ff5a.pdf](https://github.com/user-attachments/files/26695658/HTML_Essentials_certificate_andresfercos-gmail-com_6a0498b7-5575-45e4-a9b6-03a62271ff5a.pdf)
@@ -11,3 +11,6 @@ Documentación de mi proceso de aprendizaje en desarrollo web a través del curs
 
  
 </body>
+<footer>
+ andres fernando cosme
+</footer>
