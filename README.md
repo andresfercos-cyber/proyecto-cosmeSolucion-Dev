@@ -14,4 +14,7 @@ Documentación de mi proceso de aprendizaje en desarrollo web a través del curs
 <br>
 <footer>
  andres fernando cosme
+ <br>
+ 
+ <strong>3157605670</strong>
 </footer>
