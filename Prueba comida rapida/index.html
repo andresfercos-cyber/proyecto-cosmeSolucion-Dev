@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sabores y Saberes — Pollo crujiente y más</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@400;700&family=Open+Sans:wght@400;600&family=Urbanist:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Fotos del sitio en /imagenes/sitio/ (copiadas desde assets del proyecto). Las maquetas .jpg en /imagenes/ son solo referencia de diseño. -->
+    <div class="barra-util">
+      <div class="contenedor">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Menu</a>
+      </div>
+    </div>
+
+    <header class="cabecera-principal" id="inicio">
+      <div class="contenedor">
+        <div class="marca" aria-label="Sabores y Saberes inicio">
+          <span class="marca__icono" aria-hidden="true">S</span>
+          <span class="marca__texto">Sabores y Saberes</span>
+        </div>
+        <nav class="nav-principal" aria-label="Principal">
+          <a href="#contacto">Contacto</a>
+          <a href="#promociones">Promociones</a>
+          <a href="#productos">Productos</a>
+          <a href="#combos">Combos</a>
+          <a href="#nosotros">Nosotros</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-titulo">
+        <div class="contenedor">
+          <img
+            class="hero__img hero__img--izq"
+            src="imagenes/sitio/pollo-presas.png"
+            alt="Presas de pollo crujientes y doradas, recién fritas"
+            width="640"
+            height="640"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <div class="hero__centro">
+            <h1 class="titulo" id="hero-titulo">Pollo crujiente con el mejor sabor</h1>
+            <p class="subtitulo">Acompañado con papas cocidas</p>
+            <p class="caption">Papas Doradas Especiales</p>
+          </div>
+          <img
+            class="hero__img hero__img--der"
+            src="imagenes/sitio/hombre-pollo.png"
+            alt="Cliente disfrutando pollo crujiente con guarniciones"
+            width="640"
+            height="640"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+      </section>
+
+      <section class="productos" id="productos">
+        <div class="contenedor">
+          <div class="grid-productos">
+            <article class="tarjeta-producto">
+              <div class="tarjeta-producto__titulos">
+                <h2 class="subtitulo">Nuestro plato estrella</h2>
+                <p class="caption">El sabor que manda en la casa</p>
+              </div>
+              <div class="tarjeta-producto__media">
+                <img src="imagenes/sitio/pollo-presas.png" alt="Presas de pollo doradas" width="500" height="500" loading="lazy" />
+                <img src="imagenes/sitio/pareja-bandeja.png" alt="Mesa con pollo, papas y acompañamientos para compartir" width="500" height="500" loading="lazy" />
+              </div>
+              <div class="tarjeta-producto__cuerpo">
+                <p class="body-text">
+                  <strong>Contenido:</strong> presas de pollo (muslo o pierna) con dorado crujiente y jugoso interior, y
+                  <strong>papas cocidas</strong> al estilo casero.
+                </p>
+              </div>
+            </article>
+
+            <article class="tarjeta-producto">
+              <div class="tarjeta-producto__titulos">
+                <h2 class="subtitulo">El plato que te hace volver</h2>
+                <p class="caption">Donde el pollo manda y la papa conquista</p>
+              </div>
+              <div class="tarjeta-producto__media">
+                <img src="imagenes/sitio/papas-fiesta-3d.png" alt="Ilustración de papas y fiesta: sabor que celebra" width="500" height="500" loading="lazy" />
+                <img src="imagenes/sitio/empanadas.png" alt="Empanadas y pasabocas crujientes" width="500" height="500" loading="lazy" />
+              </div>
+              <div class="tarjeta-producto__cuerpo">
+                <p class="body-text">
+                  <strong>Papas aborrajadas:</strong> crujientes por fuera e irresistibles por dentro. El contraste perfecto con nuestro pollo.
+                </p>
+              </div>
+            </article>
+
+            <article class="tarjeta-producto">
+              <div class="tarjeta-producto__titulos">
+                <h2 class="subtitulo">El rey del antojo</h2>
+                <p class="caption">El favorito de los pequeños</p>
+              </div>
+              <div class="tarjeta-producto__media">
+                <img src="imagenes/sitio/pollo-presas.png" alt="Presas y piezas crujientes estilo alitas o muslos" width="500" height="500" loading="lazy" />
+                <img src="imagenes/sitio/pareja-bandeja.png" alt="Bandeja para compartir: ideal con marranitas y más" width="500" height="500" loading="lazy" />
+              </div>
+              <div class="tarjeta-producto__cuerpo">
+                <p class="body-text">
+                  <strong>Marranitas vallunas:</strong> dorado perfecto y relleno irresistible. El verdadero sabor caleño en cada bocado.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="banda-promo" id="promociones" aria-label="Promociones">
+        <div class="contenedor">
+          <p class="body-text">
+            <strong>Promo del mes:</strong> combos familiares y descuentos por volumen para empresas. Calidad en cada freidora:
+            ingredientes seleccionados y el mismo sabor que ves en pantalla, en tu mesa.
+          </p>
+        </div>
+      </section>
+
+      <section class="galeria" aria-label="Galería de momentos">
+        <div class="contenedor galeria__grid">
+          <div class="galeria__item galeria__item--a">
+            <img src="imagenes/sitio/pollo-presas.png" alt="Plato estrella: pollo crujiente" width="900" height="900" loading="lazy" />
+          </div>
+          <div class="galeria__item galeria__item--b">
+            <img src="imagenes/sitio/empanadas.png" alt="Empanadas doradas" width="600" height="400" loading="lazy" />
+          </div>
+          <div class="galeria__item galeria__item--c">
+            <img src="imagenes/sitio/pareja-bandeja.png" alt="Compartiendo bandeja en restaurante" width="700" height="500" loading="lazy" />
+          </div>
+          <div class="galeria__item galeria__item--d">
+            <img src="imagenes/sitio/papas-fiesta-3d.png" alt="Fiesta con papas y diversión" width="1000" height="700" loading="lazy" />
+          </div>
+          <div class="galeria__item galeria__item--e">
+            <img src="imagenes/sitio/hombre-pollo.png" alt="Disfrutando el pollo de la casa" width="800" height="400" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <section class="eventos" id="eventos" aria-labelledby="eventos-titulo">
+        <div class="contenedor">
+          <div class="eventos__intro">
+            <h2 class="titulo" id="eventos-titulo">Eventos con sabor y logística resuelta</h2>
+            <p class="body-text">
+              Llevamos <span class="naranja">Sabores y Saberes</span> a <strong>fiestas</strong>, <strong>empresas</strong> y
+              <strong>reuniones</strong>. Contratan nuestros productos y nosotros armamos el servicio: porciones, puntos de entrega,
+              montaje y coordinación para que solo celebren o trabajen tranquilo.
+            </p>
+          </div>
+
+          <div class="eventos__grid">
+            <article class="evento-card">
+              <span class="evento-card__badge">Fiestas</span>
+              <h3 class="subtitulo">Cumpleaños y celebraciones</h3>
+              <p class="body-text">
+                Combos por invitado, salsas y acompañamientos en cantidad justa. Montamos línea de servicio o entregamos listo para
+                compartir en mesa.
+              </p>
+            </article>
+            <article class="evento-card">
+              <span class="evento-card__badge">Empresas</span>
+              <h3 class="subtitulo">Almuerzos y activaciones</h3>
+              <p class="body-text">
+                Menús ejecutivos o populares para equipos grandes. Horarios puntuales, empaques identificados y logística en oficina o
+                planta.
+              </p>
+            </article>
+            <article class="evento-card">
+              <span class="evento-card__badge">Reuniones</span>
+              <h3 class="subtitulo">Encuentros más pequeños</h3>
+              <p class="body-text">
+                Reuniones de equipo, comités o mesas de trabajo: porciones controladas, opciones mixtas (pollo, papas, marranitas) y
+                acompañamiento hasta el lugar.
+              </p>
+            </article>
+          </div>
+
+          <div class="eventos__cta" id="contacto">
+            <h3 class="titulo">Contrátanos: producto + logística</h3>
+            <p class="body-text">
+              Nos encargamos de la cadena completa: producción, transporte, mise en place y retiro cuando aplique. Ustedes eligen el menú;
+              nosotros ejecutamos el plan para que el evento se sienta pro, con aroma a pollo recién hecho.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="resumen" id="combos">
+        <div class="contenedor grid-resumen">
+          <div class="resumen-card">
+            <h3 class="subtitulo">Nuestro plato estrella</h3>
+            <p class="caption">Presas de pollo y papas cocidas, el combo que define la casa.</p>
+          </div>
+          <div class="resumen-card">
+            <h3 class="subtitulo">El sabor que manda en la casa</h3>
+            <p class="caption">Papas aborrajadas: crujientes por fuera, suaves por dentro.</p>
+          </div>
+          <div class="resumen-card">
+            <h3 class="subtitulo">El favorito de los pequeños</h3>
+            <p class="caption">Marranitas vallunas: dorado perfecto y relleno que pide repetir.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cierre-marca" aria-labelledby="cierre-titulo">
+        <div class="contenedor">
+          <h2 class="titulo" id="cierre-titulo">Pollo crujiente con el mejor sabor</h2>
+          <p class="subtitulo">Con papas cocidas: el complemento que completa tu experiencia</p>
+          <p class="caption">Papas aborajadas Una vez las pruebas, vuelves por más</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie" id="nosotros">
+      <div class="contenedor">
+        <div class="pie__marca">
+          <span class="marca__icono" aria-hidden="true">S</span>
+          <span class="marca__texto">Sabores y Saberes</span>
+        </div>
+        <nav class="pie__nav" aria-label="Pie de página">
+          <a href="#productos">Productos</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#combos">Combos</a>
+          <a href="#promociones">Promociones</a>
+          <a href="#eventos">Eventos</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
