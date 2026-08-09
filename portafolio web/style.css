@@ -1,0 +1,164 @@
+search{
+    text-align: right;
+    margin-top: 20px;
+}
+
+
+section h1 , h3{
+    color: rgb(34,139,34);/*color verde bosque*/
+    background-color: rgb(204, 181, 181);/*color blanco*/
+    text-align: center;
+    padding: 20px;
+}
+
+title{
+    color: red;/*color rojo*/
+}
+
+body{
+    background-color: #e2dfdfda;/*color gris claro*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+section.presentacion{
+    text-align: right; 
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 27%;
+    left: 50%;
+}   
+    
+section.image{ 
+    position: absolute;
+    top:108%;
+    left: 30%;
+    width: 20%;
+    height: 20%;
+    
+}
+
+section.img{ 
+    position: absolute;
+    top:107%;
+    left: 60%;
+    width: 20px;
+    height: 20px;
+}
+
+section.ima{ 
+    position: absolute;
+    top: 33%;
+    left: 2%;
+    width: 10px;
+    height: 10px;
+    margin-left: 20px;
+    
+}
+
+section.sobre {
+    text-align: left; 
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 30%;
+    left: 21%;
+}
+
+section.recor {
+    text-align: left; 
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 50%;
+    left: 21%;
+}
+
+section.contacto {
+    text-align: left; 
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 70%;
+    left: 24%;
+}
+
+section.redes {
+    text-align: left; 
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 73%;
+    left: 48%;
+}
+
+section.Software {
+    text-align: left; 
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 93%;
+    left: 4%;
+}
+
+section.Habilidades {
+    text-align: left; 
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 156%;
+    left: 4%;
+}
+
+
+section.educacion {
+    text-align: left; 
+
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 220%;
+    left: 4%;
+}
+
+section.Competencias {
+    text-align: left; 
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 156%;
+    left: 50%;
+}
+
+
+section.experiencia {
+    text-align: left; 
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 198%;
+    left: 4%;
+}
+
+section.Laboral​ {
+    text-align: left; 
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 300%;
+    left: 4%;
+}
+
+
+footer {
+    text-align: center; 
+    color: rgb(34,139,34);/*color verde bosque*/
+    position: absolute;
+    top: 280%;
+    left: 50%;
+}
+
+strong{
+    color: rgb(40, 124, 116);/*color verde bosque*/
+}
+
+b{
+    color: rgb(27, 114, 74);/*color verde bosque*/
+}
+
+
+
+
+
+
+
+
