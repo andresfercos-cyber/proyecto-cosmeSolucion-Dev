@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Generation Models Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #151520;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --accent-cyan: #00d4ff;
+            --accent-violet: #8b5cf6;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+            animation: bgMove 20s ease-in-out infinite;
+        }
+
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(2%, 2%) rotate(5deg); }
+        }
+
+        /* Grid Pattern */
+        .grid-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge span {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-cyan) 50%, var(--accent-violet) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Filter Tabs */
+        .filter-section {
+            margin-bottom: 2rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0.5rem;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+        }
+
+        .filter-tab {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tab:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .filter-tab.active {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            color: var(--text-primary);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+            padding-bottom: 4rem;
+        }
+
+        @media (max-width: 480px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Model Card */
+        .model-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 1.75rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .model-card.hidden {
+            display: none;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .model-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1),
+                        0 0 60px rgba(139, 92, 246, 0.05);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .card-title-group {
+            flex: 1;
+        }
+
+        .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-provider {
+            font-size: 0.875rem;
+            color: var(--accent-cyan);
+        }
+
+        .pricing-badge {
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-free {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+        }
+
+        .pricing-freemium {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+        }
+
+        .pricing-paid {
+            background: rgba(139, 92, 246, 0.15);
+            color: #a78bfa;
+        }
+
+        .card-description {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-tag {
+            padding: 0.35rem 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .card-category {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-violet);
+        }
+
+        .visit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            border: none;
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .visit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Results count */
+        .results-info {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .results-count {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* No results */
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            display: none;
+        }
+
+        .no-results.visible {
+            display: block;
+        }
+
+        .no-results h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .no-results p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="grid-pattern"></div>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-badge">
+                <span></span>
+                2026 Latest Models
+            </div>
+            <h1>AI Video Generation Directory</h1>
+            <p>Discover the most powerful AI tools for creating stunning videos from text, images, or audio. Updated for 2026.</p>
+            
+            <div class="search-container">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                </svg>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search models, features, or providers...">
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">AI Models</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">2026</div>
+                    <div class="stat-label">Updated</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="filter-section">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-category="all">All Models</button>
+                <button class="filter-tab" data-category="text-to-video">Text-to-Video</button>
+                <button class="filter-tab" data-category="image-to-video">Image-to-Video</button>
+                <button class="filter-tab" data-category="animation">Animation</button>
+                <button class="filter-tab" data-category="avatars">Talking Avatars</button>
+            </div>
+        </section>
+
+        <div class="results-info">
+            Showing <span class="results-count" id="resultsCount">15</span> models
+        </div>
+
+        <div class="no-results" id="noResults">
+            <h3>No models found</h3>
+            <p>Try adjusting your search or filter criteria</p>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid">
+            <!-- Cards will be injected here -->
+        </div>
+
+        <footer class="footer">
+            <p>AI Video Generation Directory &copy; 2026. Built for the future of creative AI.</p>
+        </footer>
+    </div>
+
+    <script>
+        const models = [
+            {
+                name: "Sora",
+                provider: "OpenAI",
+                description: "OpenAI's groundbreaking text-to-video model capable of generating highly realistic and imaginative videos up to 60 seconds long from text prompts.",
+                features: ["Text-to-Video", "60s Duration", "High Fidelity", "Complex Scenes"],
+                category: "text-to-video",
+                pricing: "paid",
+                url: "https://openai.com/sora",
+                iconBg: "#ff4444",
+                icon: "S"
+            },
+            {
+                name: "Runway Gen-3",
+                provider: "Runway",
+                description: "Advanced video generation with cinematic controls, superior motion quality, and precise camera movements. The go-to tool for professional filmmakers.",
+                features: ["Text-to-Video", "Image-to-Video", "Motion Controls", "Cinematic Quality"],
+                category: "text-to-video",
+                pricing: "freemium",
+                url: "https://runwayml.com",
+                iconBg: "#6c5ce7",
+                icon: "R"
+            },
+            {
+                name: "Pika",
+                provider: "Pika Labs",
+                description: "User-friendly AI video generator with exceptional animation capabilities. Perfect for creators who want quick, quality results without steep learning curves.",
+                features: ["Text-to-Video", "Animation", "Easy Interface", "Quick Generation"],
+                category: "text-to-video",
+                pricing: "freemium",
+                url: "https://pika.art",
+                iconBg: "#fd79a8",
+                icon: "P"
+            },
+            {
+                name: "Kling",
+                provider: "Kuaishou",
+                description: "China's most advanced video generation model with photorealistic output and complex motion simulation. Supports 3D awareness and physics-based animations.",
+                features: ["Text-to-Video", "3D Awareness", "Physics Simulation", "Photorealistic"],
+                category: "text-to-video",
+                pricing: "freemium",
+                url: "https://klingai.com",
+                iconBg: "#e17055",
+                icon: "K"
+            },
+            {
+                name: "Hailuo AI",
+                provider: "MiniMax",
+                description: "Fast and efficient video generation with excellent motion consistency. Known for handling complex prompts and maintaining character coherence.",
+                features: ["Text-to-Video", "Fast Processing", "Character Consistency", "Complex Prompts"],
+                category: "text-to-video",
+                pricing: "freemium",
+                url: "https://hailuoai.video",
+                iconBg: "#00cec9",
+                icon: "H"
+            },
+            {
+                name: "Lumiere",
+                provider: "Google",
+                description: "Google's diffusion-based video generation model featuring state-of-the-art spatial and temporal coherence. Creates natural, realistic motion.",
+                features: ["Text-to-Video", "Image-to-Video", "Diffusion Tech", "Natural Motion"],
+                category: "text-to-video",
+                pricing: "paid",
+                url: "https://ai.google",
+                iconBg: "#4285f4",
+                icon: "L"
+            },
+            {
+                name: "Stable Video Diffusion",
+                provider: "Stability AI",
+                description: "Open-source image-to-video model that excels at creating smooth, consistent motion from static images. Highly customizable for developers.",
+                features: ["Image-to-Video", "Open Source", "Customizable", "Smooth Motion"],
+                category: "image-to-video",
+                pricing: "free",
+                url: "https://stability.ai",
+                iconBg: "#16a085",
+                icon: "SVD"
+            },
+            {
+                name: "Morph Studio",
+                provider: "Morph Studio",
+                description: "Professional-grade video generation with emphasis on visual storytelling. Offers cinematic aspect ratios and professional color grading options.",
+                features: ["Text-to-Video", "Cinematic Ratios", "Color Grading", "Storytelling"],
+                category: "text-to-video",
+                pricing: "freemium",
+                url: "https://morphstudio.media",
+                iconBg: "#8e44ad",
+                icon: "M"
+            },
+            {
+                name: "PixVerse",
+                provider: "PixVerse AI",
+                description: "Versatile video generation with strong animation capabilities. Great for creating stylized content, anime, and artistic videos.",
+                features: ["Text-to-Video", "Animation", "Artistic Styles", "Anime Support"],
+                category: "animation",
+                pricing: "freemium",
+                url: "https://pixverse.ai",
+                iconBg: "#9b59b6",
+                icon: "PX"
+            },
+            {
+                name: "Kaiber",
+                provider: "Kaiber",
+                description: "AI-powered video generation designed for artists and musicians. Excellent for creating music visualizers and abstract artistic content.",
+                features: ["Text-to-Video", "Animation", "Music Visualizers", "Artistic"],
+                category: "animation",
+                pricing: "paid",
+                url: "https://kaiber.ai",
+                iconBg: "#e74c3c",
+                icon: "K"
+            },
+            {
+                name: "Genmo",
+                provider: "Genmo AI",
+                description: "Creative AI platform that generates videos and 3D content. Unique focus on interactive and generative 3D scenes alongside video.",
+                features: ["Text-to-Video", "3D Content", "Interactive", "Creative Tools"],
+                category: "text-to-video",
+                pricing: "freemium",
+                url: "https://genmo.ai",
+                iconBg: "#3498db",
+                icon: "G"
+            },
+            {
+                name: "Leonardo AI",
+                provider: "Leonardo.ai",
+                description: "Comprehensive AI creative platform with strong image-to-video capabilities. Offers extensive style controls and consistent character generation.",
+                features: ["Image-to-Video", "Style Controls", "Character Consistency", "Batch Processing"],
+                category: "image-to-video",
+                pricing: "freemium",
+                url: "https://leonardo.ai",
+                iconBg: "#f39c12",
+                icon: "L"
+            },
+            {
+                name: "D-ID",
+                provider: "D-ID",
+                description: "Specialized in creating talking avatars from photos. Industry-leading lip sync technology and natural facial expressions for professional videos.",
+                features: ["Talking Avatars", "Lip Sync", "Photo Animation", "Multiple Languages"],
+                category: "avatars",
+                pricing: "paid",
+                url: "https://d-id.com",
+                iconBg: "#1abc9c",
+                icon: "D"
+            },
+            {
+                name: "HeyGen",
+                provider: "HeyGen",
+                description: "Enterprise-grade talking avatar platform with 100+ AI voices and 40+ languages. Perfect for marketing videos, training content, and localization.",
+                features: ["Talking Avatars", "100+ Voices", "40+ Languages", "Templates"],
+                category: "avatars",
+                pricing: "paid",
+                url: "https://heygen.com",
+                iconBg: "#e91e63",
+                icon: "H"
+            },
+            {
+                name: "DeepBrain AI",
+                provider: "DeepBrain",
+                description: "Realistic AI avatar video platform for business communications. Features lifelike digital humans with natural gestures and expressions.",
+                features: ["Talking Avatars", "Business Focus", "Realistic", "Templates"],
+                category: "avatars",
+                pricing: "paid",
+                url: "https://deepbrainai.io",
+                iconBg: "#00bcd4",
+                icon: "DB"
+            }
+        ];
+
+        const cardsGrid = document.getElementById('cardsGrid');
+        const searchInput = document.getElementById('searchInput');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const resultsCount = document.getElementById('resultsCount');
+        const noResults = document.getElementById('noResults');
+
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        function createCard(model, index) {
+            const pricingClass = `pricing-${model.pricing}`;
+            const pricingLabel = model.pricing.charAt(0).toUpperCase() + model.pricing.slice(1);
+            
+            return `
+                <div class="model-card" data-category="${model.category}" style="animation-delay: ${index * 0.05}s">
+                    <div class="card-header">
+                        <div class="card-icon" style="background: ${model.iconBg}20; color: ${model.iconBg}">
+                            ${model.icon}
+                        </div>
+                        <div class="card-title-group">
+                            <h3 class="card-title">${model.name}</h3>
+                            <span class="card-provider">${model.provider}</span>
+                        </div>
+                        <span class="pricing-badge ${pricingClass}">${pricingLabel}</span>
+                    </div>
+                    <p class="card-description">${model.description}</p>
+                    <div class="card-features">
+                        ${model.features.map(f => `<span class="feature-tag">${f}</span>`).join('')}
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-category">${model.category.replace('-', ' ')}</span>
+                        <a href="${model.url}" target="_blank" rel="noopener noreferrer" class="visit-btn">
+                            Visit
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function filterAndRender() {
+            const filteredModels = models.filter(model => {
+                const matchesCategory = currentCategory === 'all' || model.category === currentCategory;
+                const matchesSearch = searchQuery === '' || 
+                    model.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    model.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    model.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    model.features.some(f => f.toLowerCase().includes(searchQuery.toLowerCase()));
+                
+                return matchesCategory && matchesSearch;
+            });
+
+            cardsGrid.innerHTML = filteredModels.map((model, index) => createCard(model, index)).join('');
+            resultsCount.textContent = filteredModels.length;
+
+            if (filteredModels.length === 0) {
+                noResults.classList.add('visible');
+            } else {
+                noResults.classList.remove('visible');
+            }
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            filterAndRender();
+        });
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentCategory = tab.dataset.category;
+                filterAndRender();
+            });
+        });
+
+        // Initial render
+        filterAndRender();
+    </script>
+</body>
+</html>
