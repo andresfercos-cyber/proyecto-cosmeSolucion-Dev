@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoComponentes - Venta y Reparación</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <h1>🚗 AutoComponentes</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#componentes">Componentes</a></li>
+                <li><a href="#reparados">Reparados</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de inicio -->
+    <section id="inicio" class="hero">
+        <h2>Bienvenido a AutoComponentes</h2>
+        <p>Especialistas en venta de componentes para autos y reparación de piezas.</p>
+        <button onclick="scrollToSection('componentes')">Ver Componentes</button>
+    </section>
+
+    <!-- Sección de componentes en venta -->
+    <section id="componentes" class="section">
+        <h2>🔧 Componentes en Venta</h2>
+        <div class="product-grid" id="productos-venta">
+            <!-- Los productos se cargarán dinámicamente con JavaScript -->
+        </div>
+    </section>
+
+    <!-- Sección de componentes reparados -->
+    <section id="reparados" class="section">
+        <h2>🔧 Componentes Reparados</h2>
+        <div class="product-grid" id="productos-reparados">
+            <!-- Los productos se cargarán dinámicamente con JavaScript -->
+        </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contacto" class="section">
+        <h2>📩 Contáctanos</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo" required>
+            <input type="tel" placeholder="Teléfono">
+            <textarea placeholder="Mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 AutoComponentes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
