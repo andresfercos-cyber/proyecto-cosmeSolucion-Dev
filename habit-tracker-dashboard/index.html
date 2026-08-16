@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Tracker Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-panel" aria-labelledby="app-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Dashboard personal</p>
+        <h1 id="app-title">Habit Tracker</h1>
+        <p class="hero-text">Construye constancia, marca tu avance diario y revisa como va tu semana sin salir del navegador.</p>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbital">
+          <span class="ring ring-one"></span>
+          <span class="ring ring-two"></span>
+          <span class="pulse-dot"></span>
+          <svg viewBox="0 0 180 180" role="img">
+            <path d="M90 16c40.9 0 74 33.1 74 74s-33.1 74-74 74-74-33.1-74-74 33.1-74 74-74Z" fill="#f5f2ea"/>
+            <path d="M90 34c30.9 0 56 25.1 56 56s-25.1 56-56 56-56-25.1-56-56 25.1-56 56-56Z" fill="#ffffff"/>
+            <path d="M62 91.5l18.5 18.7L121 68" fill="none" stroke="#1f9d78" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema">
+        <span class="theme-icon" aria-hidden="true">☀</span>
+      </button>
+    </section>
+
+    <section class="dashboard-grid" aria-label="Panel de habitos">
+      <aside class="control-panel">
+        <form class="habit-form" id="habit-form">
+          <label for="habit-name">Nuevo habito</label>
+          <div class="input-row">
+            <input id="habit-name" name="habitName" type="text" maxlength="32" placeholder="Ej: Leer 20 minutos" autocomplete="off" required>
+            <button class="primary-btn" type="submit">Agregar</button>
+          </div>
+        </form>
+
+        <div class="stats-stack">
+          <article class="stat-card">
+            <span class="stat-label">Progreso semanal</span>
+            <strong id="weekly-score">0%</strong>
+            <p id="weekly-message">Agrega un habito para empezar.</p>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-label">Racha actual</span>
+            <strong id="streak-score">0 dias</strong>
+            <p>Cuenta los dias con todos los habitos completos.</p>
+          </article>
+        </div>
+      </aside>
+
+      <section class="main-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Hoy</p>
+            <h2 id="today-label">Tus habitos</h2>
+          </div>
+          <div class="segmented-control" role="group" aria-label="Filtrar habitos">
+            <button class="filter-btn active" type="button" data-filter="all">Todos</button>
+            <button class="filter-btn" type="button" data-filter="done">Completados</button>
+            <button class="filter-btn" type="button" data-filter="pending">Pendientes</button>
+          </div>
+        </div>
+
+        <div class="habit-list" id="habit-list" aria-live="polite"></div>
+
+        <section class="week-panel" aria-labelledby="week-title">
+          <div class="panel-header compact">
+            <div>
+              <p class="eyebrow">Resumen</p>
+              <h2 id="week-title">Ultimos 7 dias</h2>
+            </div>
+            <button class="ghost-btn" id="reset-demo" type="button">Reiniciar</button>
+          </div>
+          <div class="week-chart" id="week-chart"></div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <template id="habit-template">
+    <article class="habit-item">
+      <button class="check-btn" type="button" aria-label="Marcar habito"></button>
+      <div class="habit-info">
+        <h3></h3>
+        <p></p>
+      </div>
+      <button class="delete-btn" type="button" aria-label="Eliminar habito">×</button>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
