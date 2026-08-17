@@ -1,19 +1,23 @@
-name: Build and Deploy Jekyll
+name: Jekyll site CI
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Descargar código
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Construir sitio con Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
+      - name: Build Jekyll site
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/srv/jekyll" \
+            -v "${{ github.workspace }}/_site:/srv/jekyll/_site" \
+            jekyll/builder:latest \
+            jekyll build --future
